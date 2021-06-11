@@ -48,14 +48,6 @@ class GameView2 : AppCompatActivity() {
         var HStext: TextView = findViewById(R.id.Highscore) as TextView
         HStext.setText("High Score is: $currHighScore")
 
-
-
-
-
-
-
-
-
     }
     fun openMainActivity(){
         truescore = 0

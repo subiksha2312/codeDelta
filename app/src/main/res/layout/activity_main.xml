@@ -10,10 +10,10 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="377dp"
-        android:layout_height="159dp"
+        android:layout_width="378dp"
+        android:layout_height="166dp"
         android:capitalize="none"
-        android:text="Hello there!This is a quiz app which tests your ability to guess the right day of the week given the date. \n\n The scoring scheme is +5 for a right answer and -2 for a wrong answer"
+        android:text="Hello there!This is a quiz app which tests your ability to guess the right day of the week given the date. \n"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.347"
