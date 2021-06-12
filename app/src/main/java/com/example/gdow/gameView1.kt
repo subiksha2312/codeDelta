@@ -23,10 +23,9 @@ class gameView1 : AppCompatActivity() {
     lateinit var timerText:TextView
     lateinit var gameTimer: CountDownTimer
 
-
-
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+
         var saveddate=((findViewById(R.id.textView2) as TextView).text).toString()
         var savedOp1= ((findViewById(R.id.Option1) as TextView).text).toString()
         var savedOp2= ((findViewById(R.id.Option2) as TextView).text).toString()
@@ -49,16 +48,15 @@ class gameView1 : AppCompatActivity() {
         outState.putString("savedOp2",savedOp2)
         outState.putString("savedOp3",savedOp3)
         outState.putString("savedOp4",savedOp4)
-        outState.putLong("timeremaining", millisleft)
+      //  outState.putLong("timeremaining", millisleft)
         outState.putInt("currlayoutcolor",currlayoutcolor)
-
-
 
 
     }
 
-    fun startTimer(timeleft:Long){
-        gameTimer=object: CountDownTimer(timeleft,1000){
+    fun startTimer(){
+        //gameTimer=object: CountDownTimer(timeleft,1000){
+        gameTimer=object: CountDownTimer(millisleft,1000){
             override fun onTick(millisUntilFinished: Long) {
                 millisleft = millisUntilFinished
                 Log.d("StartTime", "Starting Timer...")
@@ -99,7 +97,7 @@ class gameView1 : AppCompatActivity() {
         var livescore= findViewById(R.id.livescore) as TextView
 
 
-        millisleft = savedInstanceState.getLong("timeremaining")
+        //millisleft = savedInstanceState.getLong("timeremaining")
         UpdateTimer()
 
         tvDate.setText(savedInstanceState.getString("saveddate"))
@@ -109,6 +107,8 @@ class gameView1 : AppCompatActivity() {
         radio4.setText(savedInstanceState.getString("savedOp4"))
         livescore.setText("Your Score is: $truescore")
         conlayout.setBackgroundColor(savedInstanceState.getInt("currlayoutcolor"))
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,12 +122,13 @@ class gameView1 : AppCompatActivity() {
         btnCheck.setOnClickListener {
             onClickCheckAnswer()
         }
-
+        var livescore=findViewById(R.id.livescore) as TextView
+        livescore.setText("Your Score is: $truescore")
         timerText = findViewById(R.id.timer) as TextView
 
         Log.d("Millis Left", millisleft.toString())
 
-        startTimer(millisleft)
+        startTimer()
 
         val radio1 = findViewById(R.id.Option1) as RadioButton
         val radio2 = findViewById(R.id.Option2) as RadioButton
@@ -149,6 +150,11 @@ class gameView1 : AppCompatActivity() {
 
         GenDateandDayOptions()
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        gameTimer.cancel()
     }
 
 
@@ -193,6 +199,7 @@ class gameView1 : AppCompatActivity() {
     }
 
     fun openGameView2(currscore: Int) {
+        this.finish()
         val intent = Intent(this, GameView2::class.java)
         intent.putExtra("score",currscore)
         startActivity(intent)
@@ -221,7 +228,7 @@ class gameView1 : AppCompatActivity() {
                 truescore= truescore-2
                 millisleft -=5000
                 gameTimer.cancel()
-                startTimer(millisleft)
+                startTimer()
                 conlayout.setBackgroundResource(R.color.DarkRed)
 
 

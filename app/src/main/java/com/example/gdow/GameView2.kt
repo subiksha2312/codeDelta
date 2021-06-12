@@ -15,6 +15,7 @@ class GameView2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_view2)
+
         var conlayout=findViewById(R.id.gameView2Layout) as ConstraintLayout
         conlayout.setBackgroundResource(R.color.DarkRed)
 
@@ -33,6 +34,7 @@ class GameView2 : AppCompatActivity() {
 
         text.setText("Your score is: $truescore")
         Log.d("Game 2.3","after displaying the score")
+
         val hsPref = this.getSharedPreferences(getString(R.string.HighScoreKey), Context.MODE_PRIVATE)
         var currHighScore = hsPref.getInt(getString(R.string.HighScore),0)
         Log.d("CurrHighScore", currHighScore.toString())
