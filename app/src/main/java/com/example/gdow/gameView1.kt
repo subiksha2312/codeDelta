@@ -95,6 +95,8 @@ class gameView1 : AppCompatActivity() {
         var radio3 = findViewById(R.id.Option3) as RadioButton
         var radio4 = findViewById(R.id.Option4) as RadioButton
         var conlayout = findViewById(R.id.gameView1Layout) as ConstraintLayout
+        Log.d("livescore", truescore.toString())
+        var livescore= findViewById(R.id.livescore) as TextView
 
 
         millisleft = savedInstanceState.getLong("timeremaining")
@@ -105,6 +107,7 @@ class gameView1 : AppCompatActivity() {
         radio2.setText(savedInstanceState.getString("savedOp2"))
         radio3.setText(savedInstanceState.getString("savedOp3"))
         radio4.setText(savedInstanceState.getString("savedOp4"))
+        livescore.setText("Your Score is: $truescore")
         conlayout.setBackgroundColor(savedInstanceState.getInt("currlayoutcolor"))
     }
 
@@ -223,12 +226,16 @@ class gameView1 : AppCompatActivity() {
 
 
             }
+            var livescore=(findViewById(R.id.livescore) as TextView)
+
+            livescore.setText("Your Score is: $truescore")
             GenDateandDayOptions()
             radioGroup.clearCheck()
 
 
         }
     }
+
 }
 
 
@@ -236,11 +243,7 @@ class gameView1 : AppCompatActivity() {
 
 
 
-            // Get the currently selection Answer
-            // findViewById (RadioGroup)
-            // find the current radio button selection -- {Option1, Option2, 3, 4}
-            // When Option1 -- Call Boolean rightAnswer = CheckAnswer(nOptions[0])
-            // if rightAnswer then navigate to GameView1 else GameView2
+
 
 
 

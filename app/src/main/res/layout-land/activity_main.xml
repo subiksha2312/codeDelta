@@ -10,46 +10,40 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="378dp"
-        android:layout_height="166dp"
+        android:layout_width="550dp"
+        android:layout_height="88dp"
         android:capitalize="none"
         android:text="Hello there!This is a quiz app which tests your ability to guess the right day of the week given the date. \n"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintBottom_toBottomOf="@+id/btnStart"
+        app:layout_constraintHorizontal_bias="0.668"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.233" />
+        app:layout_constraintVertical_bias="0.403" />
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="268dp"
         android:layout_height="80dp"
+        android:layout_marginBottom="152dp"
         android:text="START"
         app:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/mainhighscore"
         android:layout_width="268dp"
         android:layout_height="80dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginLeft="71dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginBottom="131dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginRight="260dp"
+        android:layout_marginBottom="60dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
