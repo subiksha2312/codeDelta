@@ -59,4 +59,9 @@ class GameView2 : AppCompatActivity() {
         startActivity(intent)
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        millisleft=60000
+    }
+
 }
