@@ -116,7 +116,7 @@ class gameView1 : AppCompatActivity() {
         setContentView(R.layout.activity_game_view1)
 
         var conlayout=findViewById(R.id.gameView1Layout) as ConstraintLayout
-        conlayout.setBackgroundResource(R.color.purple_700)
+        conlayout.setBackgroundResource(R.color.teal_700)
 
         var btnCheck = findViewById(R.id.btnCheck) as Button
         btnCheck.setOnClickListener {
