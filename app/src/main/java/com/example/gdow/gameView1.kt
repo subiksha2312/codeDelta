@@ -5,10 +5,7 @@ import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.*
 import android.util.Log
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import java.util.*
@@ -128,7 +125,7 @@ class gameView1 : AppCompatActivity() {
 
         Log.d("Millis Left", millisleft.toString())
 
-        startTimer()
+        // startTimer()
 
         val radio1 = findViewById(R.id.Option1) as RadioButton
         val radio2 = findViewById(R.id.Option2) as RadioButton
@@ -157,6 +154,15 @@ class gameView1 : AppCompatActivity() {
         gameTimer.cancel()
     }
 
+    override fun onPause() {
+        super.onPause()
+        gameTimer.cancel()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startTimer()
+    }
 
     fun GenDateandDayOptions() {
         objDOW.generateDt()
@@ -205,7 +211,9 @@ class gameView1 : AppCompatActivity() {
         startActivity(intent)
     }
 
-
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "You cannot go back until you finish the game ://", Toast.LENGTH_SHORT).show()
+    }
 
     fun onClickCheckAnswer() {
         var conlayout=findViewById(R.id.gameView1Layout) as ConstraintLayout

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
                 commit()
             }
         }
+        Log.d("MainActivity", "Entering Main Activity")
         alltimeHighScore = hsPref.getInt(getString(R.string.HighScore),0)
 
         var mainhighscore=findViewById(R.id.mainhighscore) as TextView
@@ -37,6 +39,19 @@ class MainActivity : AppCompatActivity() {
             openGameView1()
         }
 
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("Resume", "Resuming Main activity")
+
+        val hsPref = this.getSharedPreferences(getString(R.string.HighScoreKey), Context.MODE_PRIVATE)
+
+        alltimeHighScore = hsPref.getInt(getString(R.string.HighScore),0)
+
+        var mainhighscore=findViewById(R.id.mainhighscore) as TextView
+        mainhighscore.setText("All time Highscore is: $alltimeHighScore")
 
     }
 

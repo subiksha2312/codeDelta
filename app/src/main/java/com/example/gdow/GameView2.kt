@@ -10,7 +10,8 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class GameView2 : AppCompatActivity() {
-    var dinol = GuessDOW()
+
+    var alltimeHighScore:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,20 +36,26 @@ class GameView2 : AppCompatActivity() {
         text.setText("Your score is: $truescore")
         Log.d("Game 2.3","after displaying the score")
 
-        val hsPref = this.getSharedPreferences(getString(R.string.HighScoreKey), Context.MODE_PRIVATE)
-        var currHighScore = hsPref.getInt(getString(R.string.HighScore),0)
-        Log.d("CurrHighScore", currHighScore.toString())
+        setHighscore()
 
-        if (truescore > currHighScore){
-            currHighScore=truescore
+        var HStext: TextView = findViewById(R.id.Highscore) as TextView
+        HStext.setText("High Score is: $alltimeHighScore")
+
+    }
+
+    fun setHighscore(){
+        val hsPref = this.getSharedPreferences(getString(R.string.HighScoreKey), Context.MODE_PRIVATE)
+        alltimeHighScore = hsPref.getInt(getString(R.string.HighScore),0)
+        Log.d("CurrHighScore", alltimeHighScore.toString())
+
+        if (truescore > alltimeHighScore){
+            alltimeHighScore = truescore
             with (hsPref.edit()) {
-                putInt(getString(R.string.HighScore), currHighScore)
+                putInt(getString(R.string.HighScore), alltimeHighScore)
                 apply()
                 commit()
             }
         }
-        var HStext: TextView = findViewById(R.id.Highscore) as TextView
-        HStext.setText("High Score is: $currHighScore")
 
     }
     fun openMainActivity(){
@@ -61,7 +68,9 @@ class GameView2 : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+        truescore = 0
         millisleft=60000
+        setHighscore()
     }
 
 }

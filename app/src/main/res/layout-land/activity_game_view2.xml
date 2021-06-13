@@ -9,26 +9,26 @@
 
     <TextView
         android:id="@+id/Score"
-        android:layout_width="505dp"
-        android:layout_height="93dp"
+        android:layout_width="461dp"
+        android:layout_height="50dp"
         android:layout_marginStart="165dp"
         android:layout_marginLeft="165dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="160dp"
         android:layout_marginRight="160dp"
-        android:layout_marginBottom="484dp"
+        android:layout_marginBottom="200dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.626"
+        app:layout_constraintHorizontal_bias="0.981"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.772" />
 
     <Button
         android:id="@+id/btnPlayAgain"
-        android:layout_width="245dp"
-        android:layout_height="101dp"
+        android:layout_width="236dp"
+        android:layout_height="58dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="82dp"
         android:layout_marginRight="82dp"
@@ -42,13 +42,13 @@
 
     <TextView
         android:id="@+id/Highscore"
-        android:layout_width="506dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="67dp"
-        android:layout_marginLeft="67dp"
+        android:layout_width="456dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginLeft="165dp"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
         android:layout_marginBottom="7dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/btnPlayAgain"
@@ -56,5 +56,5 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Score"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.531" />
 </androidx.constraintlayout.widget.ConstraintLayout>
